@@ -85,7 +85,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero-inner {
   position: relative;
-  max-width: 680px;
+  text-align: center;
 }
 
 .hero-headline {
@@ -100,8 +100,8 @@ a { color: inherit; text-decoration: none; }
 .hero-sub {
   font-size: 17px;
   color: rgba(255,255,255,0.55);
-  max-width: 520px;
-  margin-bottom: 38px;
+  max-width: 540px;
+  margin: 0 auto 38px;
   line-height: 1.7;
 }
 
@@ -130,6 +130,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 24px;
+  text-align: center;
 }
 
 /* ── Philosophy ───────────────────────────────────────────── */
@@ -142,7 +143,10 @@ a { color: inherit; text-decoration: none; }
 
 .phil-container {
   max-width: 640px;
+  margin: 0 auto;
 }
+
+.phil-text { text-align: center; }
 
 .phil-text h2 {
   font-size: 22px;
@@ -182,6 +186,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 40px;
+  margin-bottom: 32px;
 }
 
 .product-tag {
@@ -268,6 +273,75 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.04em;
 }
 
+/* ── Carousel ─────────────────────────────────────────────── */
+.carousel {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--dark);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  user-select: none;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+  z-index: 2;
+}
+.carousel-btn:hover { background: rgba(255,255,255,0.25); }
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 0 14px;
+  background: var(--dark);
+}
+
+.carousel-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-dot.active {
+  background: var(--brand);
+  transform: scale(1.25);
+}
+
 /* ── Footer ───────────────────────────────────────────────── */
 .footer {
   background: var(--dark);
@@ -311,9 +385,10 @@ a { color: inherit; text-decoration: none; }
     flex-direction: column;
     padding: 28px 20px;
     gap: 24px;
+    margin-bottom: 24px;
   }
 
   .product-badge { align-self: flex-start; }
 
-  .phil-card { padding: 22px 18px; }
+  .carousel-btn { display: none; }
 }

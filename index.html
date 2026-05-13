@@ -54,6 +54,7 @@
   <section class="products" id="products">
     <div class="container">
       <p class="section-label">What I've built</p>
+
       <div class="product-card">
         <div class="product-info">
           <span class="product-tag">Windows · Desktop App</span>
@@ -83,6 +84,21 @@
           </div>
         </div>
       </div>
+
+      <!-- ── Screenshot Carousel ── -->
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><img src="images/ss-home.png"     alt="ENVoice — Documents home" /></div>
+          <div class="carousel-slide"><img src="images/ss-invoice.png"  alt="ENVoice — Invoice builder" /></div>
+          <div class="carousel-slide"><img src="images/ss-estimate.png" alt="ENVoice — Estimate builder" /></div>
+          <div class="carousel-slide"><img src="images/ss-pdf.png"      alt="ENVoice — PDF preview" /></div>
+          <div class="carousel-slide"><img src="images/ss-items.png"    alt="ENVoice — Item database" /></div>
+        </div>
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">&#8592;</button>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">&#8594;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
     </div>
   </section>
 
@@ -96,6 +112,40 @@
       <span class="footer-copy">&copy; 2026</span>
     </div>
   </footer>
+  <script>
+    const track  = document.getElementById('carouselTrack');
+    const prev   = document.getElementById('carouselPrev');
+    const next   = document.getElementById('carouselNext');
+    const dotsEl = document.getElementById('carouselDots');
+    const slides = track.querySelectorAll('.carousel-slide');
+    let cur = 0;
 
+    // Build dots
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    });
+
+    function goTo(n) {
+      cur = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === cur));
+    }
+
+    prev.addEventListener('click', () => goTo(cur - 1));
+    next.addEventListener('click', () => goTo(cur + 1));
+
+    // Auto-advance every 4s, pause on hover
+    let timer = setInterval(() => goTo(cur + 1), 4000);
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(timer));
+    carousel.addEventListener('mouseleave', () => {
+      timer = setInterval(() => goTo(cur + 1), 4000);
+    });
+  </script>
 </body>
 </html>
