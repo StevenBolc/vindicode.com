@@ -390,7 +390,7 @@ a { color: inherit; text-decoration: none; }
 
   .envoice-header { flex-direction: column; gap: 12px; }
 
-  .carousel-slide img { height: 260px; }
+  .carousel-slide img { height: 220px; }
 
   .carousel-btn { display: none; }
 }
