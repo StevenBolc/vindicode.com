@@ -55,10 +55,34 @@
     <div class="container">
       <p class="section-label">What I've built</p>
 
-      <div class="product-card">
-        <div class="product-info">
-          <span class="product-tag">Windows · Desktop App</span>
-          <h3 class="product-name">ENVoice</h3>
+      <div class="envoice-card">
+
+        <!-- Screenshot carousel -->
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide"><img src="images/ss-home.png"     alt="ENVoice — Documents home" /></div>
+            <div class="carousel-slide"><img src="images/ss-invoice.png"  alt="ENVoice — Invoice builder" /></div>
+            <div class="carousel-slide"><img src="images/ss-estimate.png" alt="ENVoice — Estimate builder" /></div>
+            <div class="carousel-slide"><img src="images/ss-pdf.png"      alt="ENVoice — PDF preview" /></div>
+            <div class="carousel-slide"><img src="images/ss-items.png"    alt="ENVoice — Item database" /></div>
+          </div>
+          <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+
+        <!-- Product info -->
+        <div class="envoice-info">
+          <div class="envoice-header">
+            <div>
+              <span class="product-tag">Windows · Desktop App</span>
+              <h3 class="product-name">ENVoice</h3>
+            </div>
+            <div class="badge-inner">
+              <span class="badge-label">One-time</span>
+              <span class="badge-model">No subscription</span>
+            </div>
+          </div>
           <p class="product-desc">
             Invoicing and estimating software for contractors and small businesses.
             I built it because the good options all wanted a monthly fee, and the cheap options
@@ -77,28 +101,8 @@
             Get ENVoice →
           </a>
         </div>
-        <div class="product-badge">
-          <div class="badge-inner">
-            <span class="badge-label">One-time</span>
-            <span class="badge-model">No subscription</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- ── Screenshot Carousel ── -->
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><img src="images/ss-home.png"     alt="ENVoice — Documents home" /></div>
-          <div class="carousel-slide"><img src="images/ss-invoice.png"  alt="ENVoice — Invoice builder" /></div>
-          <div class="carousel-slide"><img src="images/ss-estimate.png" alt="ENVoice — Estimate builder" /></div>
-          <div class="carousel-slide"><img src="images/ss-pdf.png"      alt="ENVoice — PDF preview" /></div>
-          <div class="carousel-slide"><img src="images/ss-items.png"    alt="ENVoice — Item database" /></div>
-        </div>
-        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">&#8592;</button>
-        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">&#8594;</button>
-        <div class="carousel-dots" id="carouselDots"></div>
       </div>
-
     </div>
   </section>
 
